@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('jurnal', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->string('level');
-            $table->string('status_user');
-            $table->rememberToken();
+            $table->unsignedBigInteger('karyawan_id');
+            $table->unsignedBigInteger('akun_id');
+            $table->text('keterangan');
+            $table->float('debit');
+            $table->float('kredit');
+            $table->date('tanggal_jurnal_umum');
+            $table->text('detail');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('jurnal');
     }
 };

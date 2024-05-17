@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    return view('Auth.welcome');
+})->name('login');
+
+Route::get('/registrasi', function(){
+    return view('Auth.registrasi');
+});
+
+Route::group(['middleware' => 'role:karyawan'], function () {
+
+});
+
+Route::group(['middleware' => 'role:nasabah'], function () {
+
 });
