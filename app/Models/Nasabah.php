@@ -11,6 +11,10 @@ class Nasabah extends Model
 
     protected $table = 'nasabah';
 
+    protected $primaryKey = 'no_pokok_nasabah';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected $fillable = [
         'user_id',
         'nama_nasabah',
