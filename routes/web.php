@@ -36,7 +36,9 @@ Route::group(['middleware' => 'level:karyawan'], function () {
     Route::post('/new-nasabah', [DataMasterController::class, 'registration']);
     Route::get('/detail-nasabah/{id}', [DataMasterController::class, 'detail_nasabah']);
     Route::put('/update-nasabah/{id}', [DataMasterController::class, 'update_nasabah']);
-
+    Route::get('/karyawan-simpanan', function(){
+        return view('karyawan.simpanan', ['title' => 'simpanan']);
+    });
     Route::get('/karyawan-logout', [AuthKaryawanController::class, 'logout']);
 });
 
