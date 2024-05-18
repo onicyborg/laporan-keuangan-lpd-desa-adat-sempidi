@@ -34,8 +34,11 @@ Route::group(['middleware' => 'level:karyawan'], function () {
     });
     Route::get('/karyawan-data-master', [DataMasterController::class, 'index']);
     Route::post('/new-nasabah', [DataMasterController::class, 'registration']);
+    Route::get('/detail-nasabah', function(){
+        return view('karyawan.detail-data-master', ['title' => 'data-master']);
+    });
 
-    Route::get('/karyawan-logout', [AuthKaryawanController::class, 'logout']);
+    Route::get('/karyawan-logout', [AuthKaryawanController::class, 'logout'] );
 });
 
 Route::group(['middleware' => 'level:pimpinan'], function () {

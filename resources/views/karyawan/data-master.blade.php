@@ -155,7 +155,7 @@
                                             <td>{{ $data->telpon }}</td>
                                             <td>{{ $data->status_nasabah }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-icon btn-outline-secondary btn-sm">
+                                                <a href="/detail-nasabah" class="btn btn-icon btn-outline-secondary btn-sm">
                                                     <span class="tf-icons bx bx-search-alt"></span>
                                                 </a>
                                             </td>
