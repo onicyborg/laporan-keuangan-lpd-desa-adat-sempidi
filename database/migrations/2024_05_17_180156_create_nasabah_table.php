@@ -20,10 +20,8 @@ return new class extends Migration
             $table->string('telpon');
             $table->string('alamat');
             $table->string('no_ktp');
-            $table->string('status_nasabah');
-            $table->unsignedBigInteger('user_id');
+            $table->enum('status_nasabah', ['aktif', 'non-aktif'])->default('aktif');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

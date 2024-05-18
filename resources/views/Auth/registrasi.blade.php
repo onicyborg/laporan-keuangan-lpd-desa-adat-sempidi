@@ -9,7 +9,7 @@
         <div class="authentication-wrapper authentication-basic container-p-y">
             <div class="authentication-inner">
                 <!-- Register Card -->
-                <div class="card">
+                <div class="card""> <!-- Membesarkan lebar card -->
                     <div class="card-body">
                         <!-- Logo -->
                         <div class="app-brand justify-content-center">
@@ -68,39 +68,100 @@
                         <h4 class="mb-2">Adventure starts here 🚀</h4>
                         <p class="mb-4">Make your app management easy and fun!</p>
 
-                        <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="Enter your username" autofocus />
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="text" class="form-control" id="email" name="email"
-                                    placeholder="Enter your email" />
-                            </div>
-                            <div class="mb-3 form-password-toggle">
-                                <label class="form-label" for="password">Password</label>
-                                <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" />
-                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                        <form id="formAuthentication" class="mb-3" action="/registrasi-nasabah" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username"
+                                            placeholder="Masukkan username" autofocus />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="nama" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" id="nama" name="nama_nasabah"
+                                            placeholder="Masukkan nama anda" />
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
-                                    <label class="form-check-label" for="terms-conditions">
-                                        I agree to
-                                        <a href="javascript:void(0);">privacy policy & terms</a>
-                                    </label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
+                                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir"
+                                            placeholder="Masukkan tempat lahir anda" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                                        <input type="date" class="form-control" id="tanggal_lahir"
+                                            name="tanggal_lahir" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="pekerjaan" class="form-label">Pekerjaan</label>
+                                        <input type="text" class="form-control" id="pekerjaan" name="pekerjaan"
+                                            placeholder="Masukkan pekerjaan anda" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="telpon" class="form-label">Telpon</label>
+                                        <input type="text" class="form-control" id="telpon" name="telpon"
+                                            placeholder="Masukkan Nomor Telpon" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="alamat">Alamat</label>
+                                        <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="no_ktp" class="form-label">Nomor KTP</label>
+                                        <input type="text" class="form-control" id="no_ktp" name="no_ktp"
+                                            placeholder="Masukkan Nomor KTP" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3 form-password-toggle">
+                                        <label class="form-label" for="password">Password</label>
+                                        <div class="input-group input-group-merge">
+                                            <input type="password" id="password" class="form-control" name="password"
+                                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                                aria-describedby="password" />
+                                            <span class="input-group-text cursor-pointer"><i
+                                                    class="bx bx-hide"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 form-password-toggle">
+                                        <label class="form-label" for="password_confirmation">Konfirmasi Password</label>
+                                        <div class="input-group input-group-merge">
+                                            <input type="password" id="password_confirmation" class="form-control"
+                                                name="password_confirmation"
+                                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                                aria-describedby="password" />
+                                            <span class="input-group-text cursor-pointer"><i
+                                                    class="bx bx-hide"></i></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <button class="btn btn-primary d-grid w-100">Sign up</button>
                         </form>
-
                         <p class="text-center">
                             <span>Already have an account?</span>
                             <a href="/">

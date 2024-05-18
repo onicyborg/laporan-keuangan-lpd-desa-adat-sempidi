@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('level');
-            $table->string('status_user');
+            $table->enum('level', ['karyawan', 'pimpinan']);
+            $table->enum('status_user', ['aktif', 'non-aktif'])->default('aktif');
             $table->rememberToken();
             $table->timestamps();
         });

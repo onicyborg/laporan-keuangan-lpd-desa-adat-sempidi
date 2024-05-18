@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthKaryawanController;
+use App\Http\Controllers\AuthNasabahController;
+use App\Http\Controllers\DataMasterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,14 +20,27 @@ Route::get('/', function(){
     return view('Auth.welcome');
 })->name('login');
 
-Route::get('/registrasi', function(){
-    return view('Auth.registrasi');
+Route::post('/login', [AuthKaryawanController::class, 'login']);
+
+// Route::get('/registrasi', function(){
+//     return view('Auth.registrasi');
+// });
+
+// Route::post('/registrasi-nasabah', [AuthNasabahController::class, 'registration']);
+
+Route::group(['middleware' => 'level:karyawan'], function () {
+    Route::get('/karyawan-dashboard', function(){
+        return view('karyawan.welcome', ['title' => 'beranda']);
+    });
+    Route::get('/karyawan-data-master', [DataMasterController::class, 'index']);
+    Route::post('/new-nasabah', [DataMasterController::class, 'registration']);
+
+    Route::get('/karyawan-logout', [AuthKaryawanController::class, 'logout']);
 });
 
-Route::group(['middleware' => 'role:karyawan'], function () {
-
-});
-
-Route::group(['middleware' => 'role:nasabah'], function () {
-
+Route::group(['middleware' => 'level:pimpinan'], function () {
+    Route::get('/pimpinan-dashboard', function(){
+        return view('pimpinan.welcome');
+    });
+    Route::get('/pimpinan-logout', [AuthKaryawanController::class, 'logout']);
 });

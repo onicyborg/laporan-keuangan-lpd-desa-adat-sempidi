@@ -14,7 +14,7 @@ class RoleMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, ...$roles): Response
+    public function handle(Request $request, Closure $next, ...$levels): Response
     {
         // Periksa apakah pengguna telah login
         if (!Auth::check()) {
@@ -22,8 +22,8 @@ class RoleMiddleware
         }
 
         // Periksa apakah pengguna memiliki peran yang diizinkan
-        foreach ($roles as $role) {
-            if (Auth::user()->role == $role) {
+        foreach ($levels as $level) {
+            if (Auth::user()->level == $level) {
                 return $next($request);
             }
         }

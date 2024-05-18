@@ -1,7 +1,11 @@
-@extends('nasabah.layout.master')
+@extends('karyawan.layout.master')
 
 @section('title')
-    Dashboard Nasabah
+    Dashboard Karyawan
+@endsection
+
+@section('judul')
+    Beranda
 @endsection
 
 @section('content')
