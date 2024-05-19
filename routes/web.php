@@ -39,6 +39,18 @@ Route::group(['middleware' => 'level:karyawan'], function () {
     Route::get('/karyawan-simpanan', function(){
         return view('karyawan.simpanan', ['title' => 'simpanan']);
     });
+    Route::get('/karyawan-penarikan', function(){
+        return view('karyawan.penarikan', ['title' => 'penarikan']);
+    });
+    Route::get('/karyawan-pinjaman', function(){
+        return view('karyawan.pinjaman', ['title' => 'pinjaman']);
+    });
+    Route::get('/karyawan-keuangan', function(){
+        return view('karyawan.keuangan', ['title' => 'keuangan']);
+    });
+    Route::get('/karyawan-laporan', function(){
+        return view('karyawan.laporan', ['title' => 'laporan']);
+    });
     Route::get('/karyawan-logout', [AuthKaryawanController::class, 'logout']);
 });
 
