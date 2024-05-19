@@ -164,6 +164,13 @@
                 </a>
             </li>
 
+            <li class="menu-item @if ($title == 'penarikan') active @endif">
+                <a href="/karyawan-penarikan" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-credit-card-alt"></i>
+                    <div data-i18n="Analytics">Penarikan</div>
+                </a>
+            </li>
+
             <li class="menu-item @if ($title == 'pinjaman') active @endif">
                 <a href="/karyawan-pinjaman" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-money"></i>
