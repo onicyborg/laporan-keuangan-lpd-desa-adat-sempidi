@@ -49,7 +49,22 @@ Route::group(['middleware' => 'level:karyawan'], function () {
         return view('karyawan.keuangan', ['title' => 'keuangan']);
     });
     Route::get('/karyawan-laporan', function(){
-        return view('karyawan.laporan', ['title' => 'laporan']);
+        return view('karyawan.laporan-jurnal-umum', ['title' => 'laporan']);
+    });
+    Route::get('/karyawan-laporan-buku-besar', function(){
+        return view('karyawan.laporan-buku-besar', ['title' => 'laporan-buku-besar']);
+    });
+    Route::get('/karyawan-laporan-neraca-saldo', function(){
+        return view('karyawan.laporan-neraca-saldo', ['title' => 'laporan-neraca-saldo']);
+    });
+    Route::get('/karyawan-laporan-perubahan-modal', function(){
+        return view('karyawan.laporan-perubahan-modal', ['title' => 'laporan-perubahan-modal']);
+    });
+    Route::get('/karyawan-laporan-laba-rugi', function(){
+        return view('karyawan.laporan-laba-rugi', ['title' => 'laporan-laba-rugi']);
+    });
+    Route::get('/karyawan-laporan-arus-kas', function(){
+        return view('karyawan.laporan-arus-kas', ['title' => 'laporan-arus-kas']);
     });
     Route::get('/karyawan-logout', [AuthKaryawanController::class, 'logout']);
 });
