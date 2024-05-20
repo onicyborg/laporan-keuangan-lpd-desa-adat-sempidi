@@ -71,7 +71,25 @@ Route::group(['middleware' => 'level:karyawan'], function () {
 
 Route::group(['middleware' => 'level:pimpinan'], function () {
     Route::get('/pimpinan-dashboard', function(){
-        return view('pimpinan.welcome');
+        return view('pimpinan.welcome', ['title' => 'dashboard']);
+    });
+    Route::get('/pimpinan-laporan', function(){
+        return view('pimpinan.laporan-jurnal-umum', ['title' => 'laporan']);
+    });
+    Route::get('/pimpinan-laporan-buku-besar', function(){
+        return view('pimpinan.laporan-buku-besar', ['title' => 'laporan-buku-besar']);
+    });
+    Route::get('/pimpinan-laporan-neraca-saldo', function(){
+        return view('pimpinan.laporan-neraca-saldo', ['title' => 'laporan-neraca-saldo']);
+    });
+    Route::get('/pimpinan-laporan-perubahan-modal', function(){
+        return view('pimpinan.laporan-perubahan-modal', ['title' => 'laporan-perubahan-modal']);
+    });
+    Route::get('/pimpinan-laporan-laba-rugi', function(){
+        return view('pimpinan.laporan-laba-rugi', ['title' => 'laporan-laba-rugi']);
+    });
+    Route::get('/pimpinan-laporan-arus-kas', function(){
+        return view('pimpinan.laporan-arus-kas', ['title' => 'laporan-arus-kas']);
     });
     Route::get('/pimpinan-logout', [AuthKaryawanController::class, 'logout']);
 });
