@@ -13,19 +13,17 @@ return new class extends Migration
     {
         Schema::create('simpanan', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal_simpanan');
-            $table->float('saldo_awal');
-            $table->float('jumlah_setoran');
-            $table->float('jumlah_penarikan');
-            $table->float('bunga');
-            $table->float('saldo_akhir');
-            $table->float('biaya_admin');
-            $table->string('jenis_simpanan');
-            $table->string('periode_sw');
+            $table->unsignedBigInteger('saldo_awal');
+            $table->unsignedBigInteger('jumlah_setoran');
+            $table->unsignedBigInteger('jumlah_penarikan');
+            $table->unsignedBigInteger('bunga');
+            $table->unsignedBigInteger('saldo_akhir');
+            $table->unsignedBigInteger('biaya_admin');
+            $table->string('periode_sw')->nullable();
             $table->string('no_pokok_nasabah');
-            $table->unsignedBigInteger('jenis_id');
+            $table->enum('jenis_transaksi', ['setoran', 'penarikan']);
+            $table->enum('jenis_simpanan', ['simpan', 'pinjam']);
             $table->foreign('no_pokok_nasabah')->references('no_pokok_nasabah')->on('nasabah');
-            $table->foreign('jenis_id')->references('id')->on('jenis_simpanan');
             $table->timestamps();
         });
     }

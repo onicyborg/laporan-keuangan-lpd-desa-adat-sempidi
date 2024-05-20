@@ -14,17 +14,17 @@ return new class extends Migration
         Schema::create('pinjaman', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal_pinjaman');
-            $table->float('besar_pendapatan');
+            $table->unsignedBigInteger('besar_pendapatan');
             $table->integer('jangka_waktu');
-            $table->float('jumlah_pinjaman');
+            $table->unsignedBigInteger('jumlah_pinjaman');
             $table->string('tujuan_pinjaman');
-            $table->float('pokok_perbulan');
-            $table->float('bunga_perbulan');
-            $table->float('total_bayar_perbulan');
+            $table->unsignedBigInteger('pokok_perbulan');
+            $table->unsignedBigInteger('bunga_perbulan');
+            $table->unsignedBigInteger('total_bayar_perbulan');
             $table->string('ktp');
             $table->string('jaminan');
             $table->date('tanggal_bayar');
-            $table->float('sisa_pinjam');
+            $table->unsignedBigInteger('sisa_pinjam');
             $table->string('status');
             $table->string('s_val');
             $table->float('biaya_peminjaman');

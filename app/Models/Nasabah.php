@@ -16,7 +16,7 @@ class Nasabah extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'user_id',
+        'no_pokok_nasabah',
         'nama_nasabah',
         'tempat_lahir',
         'tanggal_lahir',
@@ -26,4 +26,9 @@ class Nasabah extends Model
         'no_ktp',
         'status_nasabah',
     ];
+
+    public function simpanan()
+    {
+        return $this->hasMany(Simpanan::class, 'no_pokok_nasabah', 'no_pokok_nasabah');
+    }
 }

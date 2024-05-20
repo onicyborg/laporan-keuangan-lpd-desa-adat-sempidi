@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthKaryawanController;
 use App\Http\Controllers\AuthNasabahController;
 use App\Http\Controllers\DataMasterController;
+use App\Http\Controllers\PenarikanController;
+use App\Http\Controllers\SimpananController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,12 +38,15 @@ Route::group(['middleware' => 'level:karyawan'], function () {
     Route::post('/new-nasabah', [DataMasterController::class, 'registration']);
     Route::get('/detail-nasabah/{id}', [DataMasterController::class, 'detail_nasabah']);
     Route::put('/update-nasabah/{id}', [DataMasterController::class, 'update_nasabah']);
-    Route::get('/karyawan-simpanan', function(){
-        return view('karyawan.simpanan', ['title' => 'simpanan']);
-    });
-    Route::get('/karyawan-penarikan', function(){
-        return view('karyawan.penarikan', ['title' => 'penarikan']);
-    });
+
+    Route::get('/karyawan-simpanan', [SimpananController::class, 'index'])->name('karyawan-simpanan');
+    Route::post('/cari-nasabah', [SimpananController::class, 'search']);
+    Route::post('/submit-simpanan', [SimpananController::class, 'store']);
+
+    Route::get('/karyawan-penarikan', [PenarikanController::class, 'index'])->name('karyawan-penarikan');
+    Route::post('/cari-nasabah-penarikan', [PenarikanController::class, 'search']);
+    Route::post('/submit-penarikan', [PenarikanController::class, 'store']);
+
     Route::get('/karyawan-pinjaman', function(){
         return view('karyawan.pinjaman', ['title' => 'pinjaman']);
     });

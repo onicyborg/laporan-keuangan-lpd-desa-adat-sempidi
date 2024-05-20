@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('karyawan_id');
             $table->unsignedBigInteger('akun_id');
             $table->text('keterangan');
-            $table->float('debit');
-            $table->float('kredit');
+            $table->unsignedBigInteger('debit');
+            $table->unsignedBigInteger('kredit');
             $table->date('tanggal_jurnal_umum');
             $table->text('detail');
             $table->timestamps();

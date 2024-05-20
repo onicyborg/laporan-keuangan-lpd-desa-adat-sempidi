@@ -17,108 +17,136 @@
                         <div class="card-body">
                             <h5 class="card-title">Data Setoran Simpanan</h5>
                             <hr>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="col-md-3">
-                                    <label for="form-label">No Pokok Nasabah</label>
+                            <form action="/cari-nasabah" method="post">
+                                @csrf
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="col-md-3">
+                                        <label for="form-label">No Pokok Nasabah</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="no_pokok_nasabah" />
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <span><i class="bx bx-search fs-4 lh-0"></i> Cari</span>
+                                    </button>
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" />
-                                </div>
-                                <button class="btn btn-primary">
-                                    <span><i class="bx bx-search fs-4 lh-0"></i> Cari</span>
-                                </button>
-                            </div>
+                            </form>
                             <hr>
                             <div class="col-lg-12">
-                                <div class="d-flex">
-                                    <p class="col-md-4">No Pokok Nasabah</p>
-                                    <p class="col-md-4">: <span>1910101101000</span></p>
-                                </div>
-                                <div class="d-flex">
-                                    <p class="col-4">Nama Nasabah</p>
-                                    <p class="col-md-4">: <span>Akhmad Fauzi</span></p>
-                                </div>
-                                <div class="d-flex">
-                                    <p class="col-md-4">Alamat</p>
-                                    <p class="col-md-4">: <span>Jakarta Selatan</span></p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <div class="col-md-4">
-                                        <label for="form-label">Tanggal Simpanan</label>
+                                <form action="/submit-simpanan" method="post" onsubmit="return checkNominal()">
+                                    @csrf
+                                    <input type="hidden" name="no_pokok_nasabah"
+                                        value="@isset($data_nasabah){{ $data_nasabah->no_pokok_nasabah }}@endisset">
+                                    <div class="d-flex">
+                                        <p class="col-md-4">No Pokok Nasabah</p>
+                                        <p class="col-md-4">: <span>
+                                                @isset($data_nasabah)
+                                                    {{ $data_nasabah->no_pokok_nasabah }}
+                                                @endisset
+                                            </span></p>
                                     </div>
-                                    <div class="col-md-8">
-                                        <input type="date" class="form-control" />
+                                    <div class="d-flex">
+                                        <p class="col-4">Nama Nasabah</p>
+                                        <p class="col-md-4">: <span>
+                                                @isset($data_nasabah)
+                                                    {{ $data_nasabah->nama_nasabah }}
+                                                @endisset
+                                            </span></p>
                                     </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <div class="col-md-4">
-                                        <label for="form-label">Jenis Simpanan</label>
+                                    <div class="d-flex">
+                                        <p class="col-md-4">Alamat</p>
+                                        <p class="col-md-4">: <span>
+                                                @isset($data_nasabah)
+                                                    {{ $data_nasabah->alamat }}
+                                                @endisset
+                                            </span></p>
                                     </div>
-                                    <div class="col-md-8">
-                                        <select id="largeSelect" class="form-select form-select">
-                                            <option>Select</option>
-                                            <option value="1">Simpanan Wajib</option>
-                                            <option value="2">Simpanan Sunah</option>
-                                            <option value="3">Simpanan Makruh</option>
-                                        </select>
+                                    <div class="d-flex">
+                                        <input type="hidden" name="saldo" id="saldo" value="{{ isset($data_nasabah) ? $data_nasabah->simpanan->sortByDesc('created_at')->first()->saldo_akhir : '0' }}">
+                                        <p class="col-md-4">Saldo</p>
+                                        <p class="col-md-4">: <span>Rp.
+                                                @isset($data_nasabah)
+                                                    {{ number_format($data_nasabah->simpanan->sortByDesc('created_at')->first()->saldo_akhir) }}
+                                                @endisset
+                                            </span></p>
                                     </div>
-                                </div>
-                                <div class="d-flex justify-content-end mt-3">
-                                    <div>
-                                        <button class="btn btn-primary"><i
-                                                class="bx bx-refresh fs-4 lh-0"></i>batal</button>
-                                        <button class="btn btn-primary"><i class="bx bx-save fs-4 lh-0"></i>simpan</button>
-                                        <button class="btn btn-primary"><i
-                                                class="bx bx-printer fs-4 lh-0"></i>cetak</button>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <div class="col-md-4">
+                                            <label for="form-label">Tanggal Simpanan</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="date" class="form-control" disabled
+                                                value="{{ date('Y-m-d') }}" />
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="col-md-4">
+                                            <label for="nominal_setoran">Nominal Setoran Simpanan</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" id="nominal_setoran"
+                                                name="nominal_setoran" required />
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end mt-3">
+                                        <div>
+                                            <a href="/karyawan-simpanan" class="btn btn-primary"><i
+                                                    class="bx bx-refresh fs-4 lh-0"></i>batal</a>
+                                            <button type="submit" class="btn btn-primary"><i
+                                                    class="bx bx-save fs-4 lh-0"></i>simpan</button>
+                                            <button class="btn btn-primary"><i
+                                                    class="bx bx-printer fs-4 lh-0"></i>cetak</button>
+                                        </div>
+                                    </div>
+                                </form>
                                 <hr>
                                 <div class="row">
                                     <div class="col-lg-12 mb-4 order-0">
                                         <div class="card">
                                             <div class="d-flex align-items-end row">
                                                 <div class="card-body">
-                                                    <h5 class="card-title">List Data Nasabah</h5>
+                                                    <h5 class="card-title">Riwayat Setoran Nasabah</h5>
                                                     <table id="example" class="display" style="width:100%">
                                                         <thead>
                                                             <tr>
                                                                 <th>No</th>
                                                                 <th>Tanggal</th>
-                                                                <th>ID PN</th>
+                                                                <th>Nomor Pokok Nasabah</th>
                                                                 <th>Nama Nasabah</th>
-                                                                <th>Jenis Setoran</th>
+                                                                <th>Jenis Transaksi</th>
                                                                 <th>Saldo Awal</th>
-                                                                <th>Jumalh Setoran</th>
+                                                                <th>Jumlah Setoran</th>
                                                                 <th>Saldo Akhir</th>
                                                                 <th>Aksi</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>No</td>
-                                                                <td>Tanggal</td>
-                                                                <td>ID PN</td>
-                                                                <td>Nama Nasabah</td>
-                                                                <td>Jenis Setoran</td>
-                                                                <td>Saldo Awal</td>
-                                                                <td>Jumalh Setoran</td>
-                                                                <td>Saldo Akhir</td>
-                                                                <td><a href="/detail-nasabah/"
-                                                                        class="btn btn-icon btn-outline-secondary btn-sm">
-                                                                        <span class="tf-icons bx bx-search-alt"></span>
-                                                                    </a></td>
-                                                            </tr>
-
+                                                            @foreach ($data as $no => $item)
+                                                                <tr>
+                                                                    <td>{{ $no + 1 }}</td>
+                                                                    <td>{{ $item->created_at }}</td>
+                                                                    <td>{{ $item->no_pokok_nasabah }}</td>
+                                                                    <td>{{ $item->nasabah->nama_nasabah }}</td>
+                                                                    <td>{{ $item->jenis_transaksi }}</td>
+                                                                    <td>{{ $item->saldo_awal }}</td>
+                                                                    <td>{{ $item->jumlah_setoran }}</td>
+                                                                    <td>{{ $item->saldo_akhir }}</td>
+                                                                    <td><a href="/detail-nasabah/"
+                                                                            class="btn btn-icon btn-outline-secondary btn-sm">
+                                                                            <span class="tf-icons bx bx-search-alt"></span>
+                                                                        </a></td>
+                                                                </tr>
+                                                            @endforeach
                                                         </tbody>
                                                         <tfoot>
                                                             <tr>
                                                                 <th>No</th>
                                                                 <th>Tanggal</th>
-                                                                <th>ID PN</th>
+                                                                <th>Nomor Pokok Nasabah</th>
                                                                 <th>Nama Nasabah</th>
-                                                                <th>Jenis Setoran</th>
+                                                                <th>Jenis Transaksi</th>
                                                                 <th>Saldo Awal</th>
-                                                                <th>Jumalh Setoran</th>
+                                                                <th>Jumlah Setoran</th>
                                                                 <th>Saldo Akhir</th>
                                                                 <th>Aksi</th>
                                                             </tr>
@@ -178,4 +206,28 @@
                 });
             </script>
         @endif
+
+        <script>
+            // Ambil nilai saldo akhir dari input hidden
+            var saldoAkhir = parseInt(document.getElementById('saldo').value);
+
+            // Fungsi untuk mengecek nominal penarikan
+            function checkNominal() {
+
+                // Jika nominal penarikan lebih besar dari saldo akhir
+                if (saldoAkhir == 0) {
+                    // Tampilkan pesan error menggunakan SweetAlert
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Cari data nasabah terlebih dahulu',
+                    });
+                    // Hentikan proses submit form
+                    return false;
+                }
+                // Jika nominal penarikan valid, lanjutkan proses submit form
+                return true;
+            }
+        </script>
+
     @endpush

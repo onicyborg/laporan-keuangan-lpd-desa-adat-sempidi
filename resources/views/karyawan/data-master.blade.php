@@ -114,6 +114,18 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="setoran" class="form-label">Setoran Wajib Ke-1</label>
+                                            <input type="number" class="form-control @error('setoran') is-invalid @enderror"
+                                                id="setoran" name="setoran" placeholder="Masukkan nominal setoran pertama" />
+                                            @error('setoran')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
                                     <button type="button" class="btn btn-secondary" id="cancelButton">Cancel</button>

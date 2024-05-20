@@ -18,10 +18,10 @@ return new class extends Migration
             $table->date('tanggal_bayar');
             $table->date('tanggal_tempo');
             $table->integer('pembayaran_ke');
-            $table->float('pokok_perbulan');
-            $table->float('bunga_perbulan');
-            $table->float('total_bayar_perbulan');
-            $table->float('denda');
+            $table->unsignedBigInteger('pokok_perbulan');
+            $table->unsignedBigInteger('bunga_perbulan');
+            $table->unsignedBigInteger('total_bayar_perbulan');
+            $table->unsignedBigInteger('denda');
             $table->timestamps();
 
             $table->foreign('no_pokok_nasabah')->references('no_pokok_nasabah')->on('nasabah');

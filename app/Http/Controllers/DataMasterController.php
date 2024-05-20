@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nasabah;
+use App\Models\Simpanan;
 use Illuminate\Http\Request;
 
 class DataMasterController extends Controller
@@ -17,6 +18,7 @@ class DataMasterController extends Controller
             'telpon' => 'required',
             'alamat' => 'required',
             'no_ktp' => 'required',
+            'setoran' => 'required'
         ],[
             'nama_nasabah.required' => 'Nama Nasabah Wajib Diisi',
             'tempat_lahir.required' => 'Tempat Lahir Nasabah Wajib Diisi',
@@ -25,9 +27,11 @@ class DataMasterController extends Controller
             'telpon.required' => 'Nomor Telpon Nasabah Wajib Diisi',
             'alamat.required' => 'Alamat Nasabah Wajib Diisi',
             'no_ktp.required' => 'Nomor KTP Nasabah Wajib Diisi',
+            'setoran.required' => 'Setoran Wajib Ke-1 Wajib Diisi',
         ]);
 
         $nasabah = new Nasabah();
+        $setoran = new Simpanan();
 
         do {
             $uniqueNumber = random_int(100000000000, 999999999999);
@@ -42,7 +46,17 @@ class DataMasterController extends Controller
         $nasabah->alamat = $request->alamat;
         $nasabah->no_ktp = $request->no_ktp;
 
-        if($nasabah->save()){
+        $setoran->saldo_awal = 0;
+        $setoran->jumlah_setoran = $request->setoran;
+        $setoran->jumlah_penarikan = 0;
+        $setoran->bunga = 0;
+        $setoran->saldo_akhir = $request->setoran;
+        $setoran->biaya_admin = 0;
+        $setoran->jenis_simpanan = 'simpan';
+        $setoran->jenis_transaksi = 'setoran';
+        $setoran->no_pokok_nasabah = $uniqueNumber;
+
+        if($nasabah->save() && $setoran->save()){
             return redirect()->back()->with('success', 'Berhasil Menyimpan Data Nasabah Baru');
         }else{
             return redirect()->back()->with('error', 'Gagal Menyimpan Data Nasabah Baru');
