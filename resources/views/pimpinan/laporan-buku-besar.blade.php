@@ -1,11 +1,11 @@
-@extends('karyawan.layout.master')
+@extends('pimpinan.layout.master')
 
 @section('title')
     Dashboard Karyawan
 @endsection
 
 @section('judul')
-    Laporan Arus Kas
+    Laporan Buku Besar
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="d-flex align-items-end row">
                         <div class="card-body">
-                            <h5 class="card-title">Laporan Arus Kas</h5>
+                            <h5 class="card-title">Laporan Buku Besar</h5>
                             <hr>
                             <div class="d-flex align-items-center justify-content-between mb-3">
                                 <div class="col-md-12 d-flex align-items-center justify-content-between mb-3">
@@ -41,120 +41,93 @@
                                     <h2>LPD SEMPIDI</h2>
                                     <p>Desa Adat Sempidi, Kecamatan Mengwi, Kabupaten Badung, Lingkungan Sempidi</p>
                                     <hr>
-                                    <h4>Laporan Arus Kas</h4>
+                                    <h4>Buku Besar</h4>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-lg-12 mb-4 order-0">
-                                    <div class="card shadow-none">
+                                    <div class="card">
                                         <div class="d-flex align-items-end row">
+                                            <h5 class="card-title ms-2 mt-2">Akun : <span>Biaya Listrik</span></h5>
                                             <div class="card-body">
-                                                <table class="display table" style="width:100%">
+                                                <table id="example" class="display" style="width:100%">
                                                     <thead>
                                                         <tr>
-                                                            <th>Aktivitas Operasional</th>
-                                                            <th>Jumlah</th>
+                                                            <th>No</th>
+                                                            <th>Tanggal</th>
+                                                            <th>Keterangan</th>
+                                                            <th>Debit</th>
+                                                            <th>Kredit</th>
+                                                            <th>Saldo Debit</th>
+                                                            <th>Saldo Kredit</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
+                                                            <td>1</td>
+                                                            <td>1 Januari 2024</td>
                                                             <td>Biaya Listrik</td>
-                                                            <td>Rp. 30.000</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Kas</td>
-                                                            <td>Rp. 30.000</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Biaya Sewa Toko</td>
-                                                            <td>Rp. 35.000</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Kas</td>
-                                                            <td>Rp. 35.000</td>
+                                                            <td>100.000</td>
+                                                            <td></td>
+                                                            <td>100.000</td>
+                                                            <td></td>
                                                         </tr>
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
-                                                            <th>Arus Kas Aktivitas Operasional</th>
-                                                            <th>Rp. 130.000</th>
-                                                        </tr>
-                                                    </tfoot>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 mb-4 order-0">
-                                    <div class="card shadow-none">
-                                        <div class="d-flex align-items-end row">
-                                            <div class="card-body">
-                                                <table class="display table" style="width:100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Aktivitas Pendanaan</th>
-                                                            <th>Jumlah</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Biaya Listrik</td>
-                                                            <td>Rp. 30.000</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Kas</td>
-                                                            <td>Rp. 30.000</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Biaya Sewa Toko</td>
-                                                            <td>Rp. 35.000</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Kas</td>
-                                                            <td>Rp. 35.000</td>
-                                                        </tr>
-                                                    </tbody>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>Arus Kas Aktivitas Operasional</th>
-                                                            <th>Rp. 130.000</th>
-                                                        </tr>
-                                                    </tfoot>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 mb-4 order-0">
-                                    <div class="card shadow-none">
-                                        <div class="d-flex align-items-end row">
-                                            <div class="card-body">
-                                                <table class="display table" style="width:100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Kenaikan Kas</th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th>100.000</th>
+                                                            <th></th>
+                                                            <th>100.000</th>
                                                             <th></th>
                                                         </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 mb-4 order-0">
+                                    <div class="card">
+                                        <div class="d-flex align-items-end row">
+                                            <h5 class="card-title ms-2 mt-2">Akun : <span>Piutang Pengguna</span></h5>
+                                            <div class="card-body">
+                                                <table id="example2" class="display" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>Tanggal</th>
+                                                            <th>Keterangan</th>
+                                                            <th>Debit</th>
+                                                            <th>Kredit</th>
+                                                            <th>Saldo Debit</th>
+                                                            <th>Saldo Kredit</th>
+                                                        </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td>Posisi Kas 1/2/2024</td>
-                                                            <td>Rp. 30.000</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Posisi Kas 30/2/2024</td>
-                                                            <td>Rp. 60.000</td>
+                                                            <td>1</td>
+                                                            <td>1 Januari 2024</td>
+                                                            <td>Piutang Pengguna</td>
+                                                            <td>100.000</td>
+                                                            <td></td>
+                                                            <td>100.000</td>
+                                                            <td></td>
                                                         </tr>
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
-                                                            <th>Kenaikan Kas</th>
-                                                            <th>Rp. 30.000</th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th>100.000</th>
+                                                            <th></th>
+                                                            <th>100.000</th>
+                                                            <th></th>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -164,7 +137,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -185,6 +157,7 @@
         <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
         <script>
             new DataTable('#example');
+            new DataTable('#example2');
 
             document.getElementById('cancelButton').addEventListener('click', function() {
                 document.getElementById('formAuthentication').reset();

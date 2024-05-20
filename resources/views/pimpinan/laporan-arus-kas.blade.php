@@ -1,4 +1,4 @@
-@extends('karyawan.layout.master')
+@extends('pimpinan.layout.master')
 
 @section('title')
     Dashboard Karyawan
