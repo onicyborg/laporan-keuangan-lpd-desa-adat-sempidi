@@ -4,7 +4,7 @@
 @endsection
 
 @section('judul')
-    Cetak Pinjaman
+    Cetak Angsuran Pinjaman
 @endsection
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
@@ -17,7 +17,7 @@
                 <div class="col-md-12 text-center">
                     <h2>LPD SEMPIDI</h2>
                     <p>Desa Adat Sempidi, Kecamatan Mengwi, Kabupaten Badung, Lingkungan Sempidi</p>
-                    <h4>Data Pinjaman</h4>
+                    <h4>Data Angsuran Pinjaman</h4>
                 </div>
             </div>
             <hr>
@@ -38,29 +38,54 @@
                     <p class="col-8">Swakarsa</p>
                 </div>
                 <div class="row">
-                    <p class="col-3">Tanggal Simpanan</p>
+                    <p class="col-3">Sisa Pokok Setoran</p>
+                    <p class="col-1">:</p>
+                    <p class="col-8">Rp. 2.000.000</p>
+                </div>
+                <div class="row">
+                    <p class="col-3">ID Pembayaran</p>
+                    <p class="col-1">:</p>
+                    <p class="col-8">002</p>
+                </div>
+                <div class="row">
+                    <p class="col-3">Tanggal Bayar</p>
                     <p class="col-1">:</p>
                     <p class="col-8">01-01-2024</p>
                 </div>
                 <div class="row">
-                    <p class="col-3">Nominal Setoran</p>
-                    <p class="col-1">:</p>
-                    <p class="col-8">Rp. 2.000.000</p>
-                </div>
-                <div class="row">
-                    <p class="col-3">Jenis Setoran</p>
-                    <p class="col-1">:</p>
-                    <p class="col-8">Tunai</p>
-                </div>
-                <div class="row">
-                    <p class="col-3">Saldo Awal</p>
+                    <p class="col-3">Jumlah Pinjaman</p>
                     <p class="col-1">:</p>
                     <p class="col-8">Rp. 4.000.000</p>
                 </div>
                 <div class="row">
-                    <p class="col-3">Saldo Akhir</p>
+                    <p class="col-3">Jangka Waktu</p>
+                    <p class="col-1">:</p>
+                    <p class="col-8">3 Bulan</p>
+                </div>
+                <div class="row">
+                    <p class="col-3">Total Pokok Setoran Liburan</p>
                     <p class="col-1">:</p>
                     <p class="col-8">Rp. 2.000.000</p>
+                </div>
+                <div class="row">
+                    <p class="col-3">Bunga Perbulan</p>
+                    <p class="col-1">:</p>
+                    <p class="col-8">1 %</p>
+                </div>
+                <div class="row">
+                    <p class="col-3">Denda</p>
+                    <p class="col-1">:</p>
+                    <p class="col-8">Rp. 0</p>
+                </div>
+                <div class="row">
+                    <p class="col-3">Total Bayar</p>
+                    <p class="col-1">:</p>
+                    <p class="col-8">Rp. 1.000.000</p>
+                </div>
+                <div class="row">
+                    <p class="col-3">Pembayaran Ke-</p>
+                    <p class="col-1">:</p>
+                    <p class="col-8">2</p>
                 </div>
             </div>
         </div>
