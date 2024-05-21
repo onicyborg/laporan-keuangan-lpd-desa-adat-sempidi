@@ -7,11 +7,11 @@
     Cetak Simpanan
 @endsection
 @section('content')
-    <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="container-xxl flex-grow-1 container-p-y" id="divToExport">
         <div class="card p-3">
             <div class="row align-items-center">
                 <div class="d-flex col-md-12 justify-content-center">
-                    <img src="https://ugc.production.linktr.ee/035a976e-1d03-4e1d-8abf-0af33a816aae_Logo-LPD--Logo-Lembaga-Perkreditan-Desa-.png"
+                    <img src="{{ asset('assets/img/logo/logo_sempidi.png') }}"
                         alt="logo-lpd-sempidi" style="width: 100px" class="mb-3">
                 </div>
                 <div class="col-md-12 text-center">
@@ -64,6 +64,9 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <button id="exportButton">Export to PDF</button>
     @endsection
 
     @push('styles')
@@ -75,5 +78,49 @@
     @endpush
 
     @push('scripts')
-        <script></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+        <script>
+            document.getElementById('exportButton').addEventListener('click', function() {
+            // Elemen yang ingin diekspor
+            var element = document.getElementById('divToExport');
+
+            // Opsi konfigurasi html2pdf
+            var opt = {
+                margin:       1,
+                filename:     'document.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
+
+            // Pastikan semua gambar telah dimuat sepenuhnya
+            var images = element.getElementsByTagName('img');
+            var totalImages = images.length;
+            var loadedImages = 0;
+
+            for (var i = 0; i < totalImages; i++) {
+                images[i].addEventListener('load', function() {
+                    loadedImages++;
+                    if (loadedImages === totalImages) {
+                        // Ekspor elemen ke PDF ketika semua gambar telah dimuat
+                        html2pdf().set(opt).from(element).save();
+                    }
+                });
+
+                // Tambahkan pengecekan jika gambar sudah dimuat sebelumnya
+                if (images[i].complete) {
+                    loadedImages++;
+                    if (loadedImages === totalImages) {
+                        // Ekspor elemen ke PDF ketika semua gambar telah dimuat
+                        html2pdf().set(opt).from(element).save();
+                    }
+                }
+            }
+
+            // Jika tidak ada gambar, langsung lakukan ekspor
+            if (totalImages === 0) {
+                html2pdf().set(opt).from(element).save();
+            }
+        });
+        </script>
     @endpush
