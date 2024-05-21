@@ -18,7 +18,7 @@ class PenarikanController extends Controller
 
     public function search(Request $request)
     {
-        $data = Simpanan::latest()->get();
+        $data = Simpanan::where('jenis_transaksi', 'penarikan')->latest()->get();
 
         $request->validate([
             'no_pokok_nasabah' => 'required',
@@ -55,5 +55,12 @@ class PenarikanController extends Controller
         }else{
             return redirect()->back()->with('error', 'Penarikan gagal di submit');
         }
+    }
+
+    public function print($id)
+    {
+        $data = Simpanan::find($id);
+
+        return view('karyawan.cetak.penarikan', ['data' => $data, 'title' => 'penarikan']);
     }
 }

@@ -25,42 +25,42 @@
                 <div class="row">
                     <p class="col-7">No Pokok Nasabah</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">001</p>
+                    <p class="col-4">{{ $data->no_pokok_nasabah }}</p>
                 </div>
                 <div class="row">
                     <p class="col-7">Nama Nasabah</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">Fajrin Nurhakim</p>
+                    <p class="col-4">{{ $data->nasabah->nama_nasabah }}</p>
                 </div>
                 <div class="row">
                     <p class="col-7">Alamat</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">Swakarsa</p>
+                    <p class="col-4">{{ $data->nasabah->alamat }}</p>
                 </div>
                 <div class="row">
                     <p class="col-7">Tanggal Simpanan</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">01-01-2024</p>
+                    <p class="col-4">{{ $data->created_at }}</p>
                 </div>
                 <div class="row">
                     <p class="col-7">Nominal Setoran</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">Rp. 2.000.000</p>
+                    <p class="col-4">Rp. {{ number_format($data->jumlah_setoran) }}</p>
                 </div>
                 <div class="row">
-                    <p class="col-7">Jenis Setoran</p>
+                    <p class="col-7">Jenis Transaksi</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">Tunai</p>
+                    <p class="col-4">{{ $data->jenis_transaksi }}</p>
                 </div>
                 <div class="row">
                     <p class="col-7">Saldo Awal</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">Rp. 4.000.000</p>
+                    <p class="col-4">Rp. {{ number_format($data->saldo_awal) }}</p>
                 </div>
                 <div class="row">
                     <p class="col-7">Saldo Akhir</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">Rp. 2.000.000</p>
+                    <p class="col-4">Rp. {{ number_format($data->saldo_akhir) }}</p>
                 </div>
             </div>
         </div>

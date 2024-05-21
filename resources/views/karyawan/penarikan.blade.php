@@ -135,7 +135,7 @@
                                                                     <td>{{ $item->saldo_awal }}</td>
                                                                     <td>{{ $item->jumlah_penarikan }}</td>
                                                                     <td>{{ $item->saldo_akhir }}</td>
-                                                                    <td><a href="/karyawan-cetak-penarikan"
+                                                                    <td><a href="/karyawan-cetak-penarikan/{{ $item->id }}"
                                                                             class="btn btn-icon btn-outline-secondary btn-sm">
                                                                             <span class="tf-icons bx bx-printer"></span>
                                                                         </a></td>

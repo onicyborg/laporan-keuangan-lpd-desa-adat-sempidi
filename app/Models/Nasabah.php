@@ -31,4 +31,9 @@ class Nasabah extends Model
     {
         return $this->hasMany(Simpanan::class, 'no_pokok_nasabah', 'no_pokok_nasabah');
     }
+
+    public function pinjaman()
+    {
+        return $this->hasMany(Pinjaman::class, 'no_pokok_nasabah', 'no_pokok_nasabah');
+    }
 }

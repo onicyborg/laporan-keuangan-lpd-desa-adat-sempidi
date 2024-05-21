@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthKaryawanController;
 use App\Http\Controllers\AuthNasabahController;
 use App\Http\Controllers\DataMasterController;
 use App\Http\Controllers\PenarikanController;
+use App\Http\Controllers\PinjamanController;
 use App\Http\Controllers\SimpananController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,14 +43,19 @@ Route::group(['middleware' => 'level:karyawan'], function () {
     Route::get('/karyawan-simpanan', [SimpananController::class, 'index'])->name('karyawan-simpanan');
     Route::post('/cari-nasabah', [SimpananController::class, 'search']);
     Route::post('/submit-simpanan', [SimpananController::class, 'store']);
+    Route::get('/karyawan-cetak-simpanan/{id}', [SimpananController::class, 'print']);
 
     Route::get('/karyawan-penarikan', [PenarikanController::class, 'index'])->name('karyawan-penarikan');
     Route::post('/cari-nasabah-penarikan', [PenarikanController::class, 'search']);
     Route::post('/submit-penarikan', [PenarikanController::class, 'store']);
+    Route::get('/karyawan-cetak-penarikan/{id}', [PenarikanController::class, 'print']);
 
-    Route::get('/karyawan-pinjaman', function(){
-        return view('karyawan.pinjaman', ['title' => 'pinjaman']);
+    Route::get('/karyawan-pinjaman', [PinjamanController::class, 'index']);
+    Route::post('/cari-nasabah-pinjaman', [PinjamanController::class, 'search']);
+    Route::get('/karyawan-cetak-pinjaman', function(){
+        return view('karyawan.cetak.pinjaman', ['title' => 'pinjaman']);
     });
+
     Route::get('/karyawan-keuangan', function(){
         return view('karyawan.keuangan', ['title' => 'keuangan']);
     });
@@ -71,15 +77,7 @@ Route::group(['middleware' => 'level:karyawan'], function () {
     Route::get('/karyawan-laporan-arus-kas', function(){
         return view('karyawan.laporan-arus-kas', ['title' => 'laporan-arus-kas']);
     });
-    Route::get('/karyawan-cetak-pinjaman', function(){
-        return view('karyawan.cetak.pinjaman', ['title' => 'pinjaman']);
-    });
-    Route::get('/karyawan-cetak-simpanan', function(){
-        return view('karyawan.cetak.simpanan', ['title' => 'simpanan']);
-    });
-    Route::get('/karyawan-cetak-penarikan', function(){
-        return view('karyawan.cetak.penarikan', ['title' => 'penarikan']);
-    });
+
     Route::get('/karyawan-logout', [AuthKaryawanController::class, 'logout']);
 });
 

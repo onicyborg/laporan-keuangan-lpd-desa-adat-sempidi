@@ -59,4 +59,11 @@ class SimpananController extends Controller
 
         return view('karyawan.simpanan', ['data' => $data, 'title' => 'simpanan']);
     }
+
+    public function print($id)
+    {
+        $data = Simpanan::find($id);
+
+        return view('karyawan.cetak.simpanan', ['data' => $data, 'title' => 'simpanan']);
+    }
 }

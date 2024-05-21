@@ -17,51 +17,37 @@
                         <div class="card-body">
                             <h5 class="card-title">Data Angsuran Pembayaran</h5>
                             <hr>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="col-md-3">
-                                    <label for="form-label">No Pokok Nasabah</label>
+                            <form action="/cari-nasabah-pinjaman" method="post">
+                                @csrf
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="col-md-3">
+                                        <label for="form-label">No Pokok Nasabah</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="no_pokok_nasabah" />
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <span><i class="bx bx-search fs-4 lh-0"></i> Cari</span>
+                                    </button>
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" />
-                                </div>
-                                <button class="btn btn-primary">
-                                    <span><i class="bx bx-search fs-4 lh-0"></i> Cari</span>
-                                </button>
-                            </div>
+                            </form>
                             <hr>
                             <div class="col-lg-12">
                                 <div class="d-flex">
                                     <p class="col-md-4">No Pokok Nasabah</p>
-                                    <p class="col-md-4">: <span>1910101101000</span></p>
+                                    <p class="col-md-4">: <span>@isset($data_nasabah) {{ $data_nasabah->no_pokok_nasabah }} @endisset</span></p>
                                 </div>
                                 <div class="d-flex">
                                     <p class="col-4">Nama Nasabah</p>
-                                    <p class="col-md-4">: <span>Akhmad Fauzi</span></p>
+                                    <p class="col-md-4">: <span>@isset($data_nasabah) {{ $data_nasabah->nama_nasabah }} @endisset</span></p>
                                 </div>
                                 <div class="d-flex">
                                     <p class="col-md-4">Alamat</p>
-                                    <p class="col-md-4">: <span>Jakarta Selatan</span></p>
+                                    <p class="col-md-4">: <span>@isset($data_nasabah) {{ $data_nasabah->alamat }} @endisset</span></p>
                                 </div>
                                 <div class="d-flex">
-                                    <p class="col-md-4">Sisa Pokok Pinjaman</p>
-                                    <p class="col-md-4">: <span>Rp. 1.000.000</span></p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <div class="col-md-4">
-                                        <label for="form-label">ID Pembayaran</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <select id="largeSelect" class="form-select form-select">
-                                            <option>Select</option>
-                                            <option value="1">10</option>
-                                            <option value="2">12</option>
-                                            <option value="3">13</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <p class="col-md-4">Tanggal bayar</p>
-                                    <p class="col-md-4">: <span>02/02/2021</span></p>
+                                    <p class="col-md-4">Tanggal Pengajuan Pinjaman</p>
+                                    <p class="col-md-4">: <span>{{ date('d-m-Y') }}</span></p>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mb-3">
                                     <p class="col-md-4">Jumlah Pinjaman</p>
@@ -72,28 +58,26 @@
                                 <div class="d-flex d-flex align-items-center justify-content-between mb-3">
                                     <p class="col-md-4">Jangka Waktu</p>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control mb-3" />
+                                        <select id="largeSelect" class="form-select form-select">
+                                            <option selected disabled>- Pilih Jangka Waktu -</option>
+                                            <option value="3">3 Bulan</option>
+                                            <option value="6">6 Bulan</option>
+                                            <option value="12">12 Bulan</option>
+                                            <option value="24">24 Bulan</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="d-flex">
                                     <p class="col-md-4">Total Pokok Setoran Liburan</p>
-                                    <p class="col-md-4">: <span>Rp. 1.000.000</span></p>
-                                </div>
-                                <div class="d-flex">
-                                    <p class="col-md-4">Bunga Perbulan</p>
-                                    <p class="col-md-4">: <span>1 %</span></p>
-                                </div>
-                                <div class="d-flex">
-                                    <p class="col-md-4">Denda</p>
                                     <p class="col-md-4">: <span>Rp. 0</span></p>
                                 </div>
                                 <div class="d-flex">
-                                    <p class="col-md-4">Total Bayar</p>
-                                    <p class="col-md-4">: <span>Rp. 1.030.000</span></p>
+                                    <p class="col-md-4">Bunga Perbulan</p>
+                                    <p class="col-md-4">: <span>2 %</span></p>
                                 </div>
                                 <div class="d-flex">
-                                    <p class="col-md-4">Pembayaran Ke-</p>
-                                    <p class="col-md-4">: <span>1</span></p>
+                                    <p class="col-md-4">Total Bayar Perbulan</p>
+                                    <p class="col-md-4">: <span>Rp. 1.030.000</span></p>
                                 </div>
                                 <div class="d-flex justify-content-end mt-3">
                                     <div>
@@ -115,27 +99,27 @@
                                                                 <th>No</th>
                                                                 <th>Tanggal</th>
                                                                 <th>ID Nasabah</th>
-                                                                <th>Pembayaran Ke-</th>
-                                                                <th>Jumlah Bayar</th>
-                                                                <th>Denda</th>
-                                                                <th>Sisa Pinjaman</th>
+                                                                <th>Nominal Pinjaman</th>
+                                                                <th>Status Pinjaman</th>
+                                                                <th>Jangka Waktu</th>
                                                                 <th>Aksi</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>02/02/2024</td>
-                                                                <td>0002</td>
-                                                                <td>1</td>
-                                                                <td>Rp. 1.030.000</td>
-                                                                <td>Rp. 0</td>
-                                                                <td>Rp. 2.000.000</td>
-                                                                <td><a href="/karyawan-cetak-pinjaman"
-                                                                        class="btn btn-icon btn-outline-secondary btn-sm">
-                                                                        <span class="tf-icons bx bx-printer"></span>
-                                                                    </a></td>
-                                                            </tr>
+                                                            @foreach ($data as $no => $item)
+                                                                <tr>
+                                                                    <td>{{ $no+1 }}</td>
+                                                                    <td>{{ $data->created_at }}</td>
+                                                                    <td>{{ $data->no_pokok_nasabah }}</td>
+                                                                    <td>Rp. {{ format_number($data->jumlah_pinjaman) }}</td>
+                                                                    <td>{{ $data->status }}</td>
+                                                                    <td>{{ $data->jangka_waktu }}</td>
+                                                                    <td><a href="/karyawan-cetak-pinjaman"
+                                                                            class="btn btn-icon btn-outline-secondary btn-sm">
+                                                                            <span class="tf-icons bx bx-printer"></span>
+                                                                        </a></td>
+                                                                </tr>
+                                                            @endforeach
 
                                                         </tbody>
                                                         <tfoot>
@@ -143,10 +127,9 @@
                                                                 <th>No</th>
                                                                 <th>Tanggal</th>
                                                                 <th>ID Nasabah</th>
-                                                                <th>Pembayaran Ke-</th>
-                                                                <th>Jumlah Bayar</th>
-                                                                <th>Denda</th>
-                                                                <th>Sisa Pinjaman</th>
+                                                                <th>Nominal Pinjaman</th>
+                                                                <th>Status Pinjaman</th>
+                                                                <th>Jangka Waktu</th>
                                                                 <th>Aksi</th>
                                                             </tr>
                                                         </tfoot>
