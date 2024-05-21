@@ -23,50 +23,52 @@
             <hr>
             <div class="row align-items-center">
                 <div class="row">
-                    <p class="col-3">No Pokok Nasabah</p>
+                    <p class="col-7">No Pokok Nasabah</p>
                     <p class="col-1">:</p>
-                    <p class="col-8">001</p>
+                    <p class="col-4">001</p>
                 </div>
                 <div class="row">
-                    <p class="col-3">Nama Nasabah Nasabah</p>
+                    <p class="col-7">Nama Nasabah</p>
                     <p class="col-1">:</p>
-                    <p class="col-8">Fajrin Nurhakim</p>
+                    <p class="col-4">Fajrin Nurhakim</p>
                 </div>
                 <div class="row">
-                    <p class="col-3">Alamat</p>
+                    <p class="col-7">Alamat</p>
                     <p class="col-1">:</p>
-                    <p class="col-8">Swakarsa</p>
+                    <p class="col-4">Swakarsa</p>
                 </div>
                 <div class="row">
-                    <p class="col-3">Saldo</p>
+                    <p class="col-7">Saldo</p>
                     <p class="col-1">:</p>
-                    <p class="col-8">Rp. 2.000.000</p>
+                    <p class="col-4">Rp. 2.000.000</p>
 
                 </div>
                 <div class="row">
-                    <p class="col-3">Tanggal Penarikan</p>
+                    <p class="col-7">Tanggal Penarikan</p>
                     <p class="col-1">:</p>
-                    <p class="col-8">01-01-2024</p>
+                    <p class="col-4">01-01-2024</p>
                 </div>
                 <div class="row">
-                    <p class="col-3">Nominal Penarikan Simpanan</p>
+                    <p class="col-7">Nominal Penarikan Simpanan</p>
                     <p class="col-1">:</p>
-                    <p class="col-8">Rp. 2.000.000</p>
+                    <p class="col-4">Rp. 2.000.000</p>
                 </div>
                 <div class="row">
-                    <p class="col-3">Saldo Awal</p>
+                    <p class="col-7">Saldo Awal</p>
                     <p class="col-1">:</p>
-                    <p class="col-8">Rp. 4.000.000</p>
+                    <p class="col-4">Rp. 4.000.000</p>
                 </div>
                 <div class="row">
-                    <p class="col-3">Saldo Akhir</p>
+                    <p class="col-7">Saldo Akhir</p>
                     <p class="col-1">:</p>
-                    <p class="col-8">Rp. 2.000.000</p>
+                    <p class="col-4">Rp. 2.000.000</p>
                 </div>
             </div>
         </div>
     </div>
-    <button id="exportButton">Export to PDF</button>
+    <div class="container-xxl ">
+        <button id="exportButton" class="btn btn-primary ">Export to PDF</button>
+    </div>
 @endsection
 
 @push('styles')
@@ -98,7 +100,7 @@
                 jsPDF: {
                     unit: 'in',
                     format: 'letter',
-                    orientation: 'landscape'
+                    orientation: 'portrait'
                 }
             };
 
