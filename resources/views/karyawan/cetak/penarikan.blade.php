@@ -38,19 +38,20 @@
                     <p class="col-8">Swakarsa</p>
                 </div>
                 <div class="row">
-                    <p class="col-3">Tanggal Simpanan</p>
+                    <p class="col-3">Saldo</p>
+                    <p class="col-1">:</p>
+                    <p class="col-8">Rp. 2.000.000</p>
+
+                </div>
+                <div class="row">
+                    <p class="col-3">Tanggal Penarikan</p>
                     <p class="col-1">:</p>
                     <p class="col-8">01-01-2024</p>
                 </div>
                 <div class="row">
-                    <p class="col-3">Nominal Setoran</p>
+                    <p class="col-3">Nominal Penarikan Simpanan</p>
                     <p class="col-1">:</p>
                     <p class="col-8">Rp. 2.000.000</p>
-                </div>
-                <div class="row">
-                    <p class="col-3">Jenis Setoran</p>
-                    <p class="col-1">:</p>
-                    <p class="col-8">Tunai</p>
                 </div>
                 <div class="row">
                     <p class="col-3">Saldo Awal</p>
@@ -63,17 +64,16 @@
                     <p class="col-8">Rp. 2.000.000</p>
                 </div>
             </div>
-        </div>
-    @endsection
+        @endsection
 
-    @push('styles')
-        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css">
-        <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
-        <style>
+        @push('styles')
+            <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css">
+            <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
+            <style>
 
-        </style>
-    @endpush
+            </style>
+        @endpush
 
-    @push('scripts')
-        <script></script>
-    @endpush
+        @push('scripts')
+            <script></script>
+        @endpush
