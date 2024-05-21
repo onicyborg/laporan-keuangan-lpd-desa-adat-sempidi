@@ -63,13 +63,17 @@
                                     <p class="col-md-4">Tanggal bayar</p>
                                     <p class="col-md-4">: <span>02/02/2021</span></p>
                                 </div>
-                                <div class="d-flex">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
                                     <p class="col-md-4">Jumlah Pinjaman</p>
-                                    <p class="col-md-4">: <span>Rp. 3.000.000</span></p>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control mb-3" />
+                                    </div>
                                 </div>
-                                <div class="d-flex">
+                                <div class="d-flex d-flex align-items-center justify-content-between mb-3">
                                     <p class="col-md-4">Jangka Waktu</p>
-                                    <p class="col-md-4">: <span>3 Bulan</span></p>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control mb-3" />
+                                    </div>
                                 </div>
                                 <div class="d-flex">
                                     <p class="col-md-4">Total Pokok Setoran Liburan</p>
@@ -96,8 +100,6 @@
                                         <button class="btn btn-primary"><i
                                                 class="bx bx-refresh fs-4 lh-0"></i>batal</button>
                                         <button class="btn btn-primary"><i class="bx bx-save fs-4 lh-0"></i>simpan</button>
-                                        <button class="btn btn-primary"><i
-                                                class="bx bx-printer fs-4 lh-0"></i>cetak</button>
                                     </div>
                                 </div>
                                 <hr>
@@ -129,9 +131,9 @@
                                                                 <td>Rp. 1.030.000</td>
                                                                 <td>Rp. 0</td>
                                                                 <td>Rp. 2.000.000</td>
-                                                                <td><a href="/detail-nasabah/"
+                                                                <td><a href="/karyawan-cetak-pinjaman"
                                                                         class="btn btn-icon btn-outline-secondary btn-sm">
-                                                                        <span class="tf-icons bx bx-search-alt"></span>
+                                                                        <span class="tf-icons bx bx-printer"></span>
                                                                     </a></td>
                                                             </tr>
 
