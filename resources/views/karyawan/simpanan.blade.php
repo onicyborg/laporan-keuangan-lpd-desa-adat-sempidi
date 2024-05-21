@@ -62,7 +62,8 @@
                                             </span></p>
                                     </div>
                                     <div class="d-flex">
-                                        <input type="hidden" name="saldo" id="saldo" value="{{ isset($data_nasabah) ? $data_nasabah->simpanan->sortByDesc('created_at')->first()->saldo_akhir : '0' }}">
+                                        <input type="hidden" name="saldo" id="saldo"
+                                            value="{{ isset($data_nasabah) ? $data_nasabah->simpanan->sortByDesc('created_at')->first()->saldo_akhir : '0' }}">
                                         <p class="col-md-4">Saldo</p>
                                         <p class="col-md-4">: <span>Rp.
                                                 @isset($data_nasabah)
@@ -94,8 +95,6 @@
                                                     class="bx bx-refresh fs-4 lh-0"></i>batal</a>
                                             <button type="submit" class="btn btn-primary"><i
                                                     class="bx bx-save fs-4 lh-0"></i>simpan</button>
-                                            <button class="btn btn-primary"><i
-                                                    class="bx bx-printer fs-4 lh-0"></i>cetak</button>
                                         </div>
                                     </div>
                                 </form>
@@ -131,9 +130,9 @@
                                                                     <td>{{ $item->saldo_awal }}</td>
                                                                     <td>{{ $item->jumlah_setoran }}</td>
                                                                     <td>{{ $item->saldo_akhir }}</td>
-                                                                    <td><a href="/detail-nasabah/"
+                                                                    <td><a href="/karyawan-cetak-simpanan"
                                                                             class="btn btn-icon btn-outline-secondary btn-sm">
-                                                                            <span class="tf-icons bx bx-search-alt"></span>
+                                                                            <span class="tf-icons bx bx-printer"></span>
                                                                         </a></td>
                                                                 </tr>
                                                             @endforeach

@@ -62,7 +62,8 @@
                                             </span></p>
                                     </div>
                                     <div class="d-flex">
-                                        <input type="hidden" name="saldo" id="saldo" value="{{ isset($data_nasabah) ? $data_nasabah->simpanan->sortByDesc('created_at')->first()->saldo_akhir : '0' }}">
+                                        <input type="hidden" name="saldo" id="saldo"
+                                            value="{{ isset($data_nasabah) ? $data_nasabah->simpanan->sortByDesc('created_at')->first()->saldo_akhir : '0' }}">
                                         <p class="col-md-4">Saldo</p>
                                         <p class="col-md-4">: <span>Rp.
                                                 @isset($data_nasabah)
@@ -84,7 +85,9 @@
                                             <label for="nominal_penarikan">Nominal Penarikan Simpanan</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <input type="number" class="form-control @error('nominal_penarikan') is-invalid @enderror" id="nominal_penarikan" name="nominal_penarikan" required />
+                                            <input type="number"
+                                                class="form-control @error('nominal_penarikan') is-invalid @enderror"
+                                                id="nominal_penarikan" name="nominal_penarikan" required />
                                             @error('nominal_penarikan')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -97,8 +100,6 @@
                                                     class="bx bx-refresh fs-4 lh-0"></i>batal</a>
                                             <button type="submit" class="btn btn-primary"><i
                                                     class="bx bx-save fs-4 lh-0"></i>simpan</button>
-                                            <button class="btn btn-primary"><i
-                                                    class="bx bx-printer fs-4 lh-0"></i>cetak</button>
                                         </div>
                                     </div>
                                 </form>
@@ -134,9 +135,9 @@
                                                                     <td>{{ $item->saldo_awal }}</td>
                                                                     <td>{{ $item->jumlah_penarikan }}</td>
                                                                     <td>{{ $item->saldo_akhir }}</td>
-                                                                    <td><a href="/detail-nasabah/"
+                                                                    <td><a href="/karyawan-cetak-penarikan"
                                                                             class="btn btn-icon btn-outline-secondary btn-sm">
-                                                                            <span class="tf-icons bx bx-search-alt"></span>
+                                                                            <span class="tf-icons bx bx-printer"></span>
                                                                         </a></td>
                                                                 </tr>
                                                             @endforeach
@@ -219,7 +220,7 @@
                 var nominalPenarikan = parseInt(document.getElementById('nominal_penarikan').value);
 
                 // Jika nominal penarikan lebih besar dari saldo akhir
-                if (saldoAkhir == 0 ||nominalPenarikan > saldoAkhir) {
+                if (saldoAkhir == 0 || nominalPenarikan > saldoAkhir) {
                     // Tampilkan pesan error menggunakan SweetAlert
                     Swal.fire({
                         icon: 'error',

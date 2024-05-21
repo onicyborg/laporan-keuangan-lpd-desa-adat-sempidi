@@ -71,6 +71,15 @@ Route::group(['middleware' => 'level:karyawan'], function () {
     Route::get('/karyawan-laporan-arus-kas', function(){
         return view('karyawan.laporan-arus-kas', ['title' => 'laporan-arus-kas']);
     });
+    Route::get('/karyawan-cetak-pinjaman', function(){
+        return view('karyawan.cetak.pinjaman', ['title' => 'cetak-pinjaman']);
+    });
+    Route::get('/karyawan-cetak-simpanan', function(){
+        return view('karyawan.cetak.simpanan', ['title' => 'cetak-simpanan']);
+    });
+    Route::get('/karyawan-cetak-penarikan', function(){
+        return view('karyawan.cetak.penarikan', ['title' => 'cetak-penarikan']);
+    });
     Route::get('/karyawan-logout', [AuthKaryawanController::class, 'logout']);
 });
 
