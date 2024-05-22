@@ -4,7 +4,7 @@
 @endsection
 
 @section('judul')
-    Cetak Angsuran Pinjaman
+    Cetak Angsuran Pembayaran Pinjaman
 @endsection
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y" id="divToExport">
@@ -17,7 +17,7 @@
                 <div class="col-md-12 text-center">
                     <h2>LPD SEMPIDI</h2>
                     <p>Desa Adat Sempidi, Kecamatan Mengwi, Kabupaten Badung, Lingkungan Sempidi</p>
-                    <h4>Data Angsuran Pinjaman</h4>
+                    <h4>Data Angsuran Pembayaran Pinjaman</h4>
                 </div>
             </div>
             <hr>
@@ -63,22 +63,12 @@
                     <p class="col-4">3 Bulan</p>
                 </div>
                 <div class="row">
-                    <p class="col-7">Total Pokok Setoran Liburan</p>
-                    <p class="col-1">:</p>
-                    <p class="col-4">Rp. 2.000.000</p>
-                </div>
-                <div class="row">
                     <p class="col-7">Bunga Perbulan</p>
                     <p class="col-1">:</p>
                     <p class="col-4">1 %</p>
                 </div>
                 <div class="row">
-                    <p class="col-7">Denda</p>
-                    <p class="col-1">:</p>
-                    <p class="col-4">Rp. 0</p>
-                </div>
-                <div class="row">
-                    <p class="col-7">Total Bayar</p>
+                    <p class="col-7">Total Tagihan Bulan Ini</p>
                     <p class="col-1">:</p>
                     <p class="col-4">Rp. 1.000.000</p>
                 </div>

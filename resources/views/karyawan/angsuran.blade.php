@@ -5,7 +5,7 @@
 @endsection
 
 @section('judul')
-    Data Pinjaman
+    Data Angsuran Pembayaran Pinjaman
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="d-flex align-items-end row">
                         <div class="card-body">
-                            <h5 class="card-title">Data Pinjaman</h5>
+                            <h5 class="card-title">Data Angsuran Pembayaran Pinjaman</h5>
                             <hr>
                             <form action="/cari-nasabah-pinjaman" method="post">
                                 @csrf
@@ -62,68 +62,55 @@
                                             </span></p>
                                     </div>
                                     <div class="d-flex">
-                                        <p class="col-md-4">Tanggal Pengajuan Pinjaman</p>
+                                        <p class="col-md-4">Sisa Pokok Setoran</p>
+                                        <p class="col-md-4">: <span>
+                                                @isset($data_nasabah)
+                                                    {{ $data_nasabah->alamat }}
+                                                @endisset
+                                            </span></p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <p class="col-md-4">ID Pembayaran</p>
+                                        <p class="col-md-4">: <span>
+                                                @isset($data_nasabah)
+                                                    {{ $data_nasabah->alamat }}
+                                                @endisset
+                                            </span></p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <p class="col-md-4">Tanggal Bayar</p>
                                         <p class="col-md-4">: <span>{{ date('d-m-Y') }}</span></p>
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <div class="d-flex">
                                         <p class="col-md-4">Jumlah Pinjaman</p>
-                                        <div class="col-md-8">
-                                            <input type="number" class="form-control mb-3" id="jumlah_pinjaman"
-                                                name="jumlah_pinjaman" required />
-                                        </div>
+                                        <p class="col-md-4">: <span>
+                                                @isset($data_nasabah)
+                                                    {{ $data_nasabah->alamat }}
+                                                @endisset
+                                            </span></p>
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <p class="col-md-4">Besar Pendapatan</p>
-                                        <div class="col-md-8">
-                                            <input type="number" class="form-control mb-3" id="besar_pendapatan"
-                                                name="besar_pendapatan" required />
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <p class="col-md-4">Tujuan Pinjaman</p>
-                                        <div class="col-md-8">
-                                            <input type="text" class="form-control mb-3" name="tujuan_pinjaman"
-                                                required />
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <p class="col-md-4">Jaminan</p>
-                                        <div class="col-md-8">
-                                            <input type="text" class="form-control mb-3" name="jaminan" required />
-                                        </div>
-                                    </div>
-                                    <div class="d-flex d-flex align-items-center justify-content-between mb-3">
+                                    <div class="d-flex">
                                         <p class="col-md-4">Jangka Waktu</p>
-                                        <div class="col-md-8">
-                                            <select id="largeSelect" class="form-select form-select" name="jangka_waktu"
-                                                onchange="calculateLoan()" required>
-                                                <option selected disabled>- Pilih Jangka Waktu -</option>
-                                                <option value="3">3 Bulan</option>
-                                                <option value="6">6 Bulan</option>
-                                                <option value="12">12 Bulan</option>
-                                                <option value="24">24 Bulan</option>
-                                            </select>
-                                        </div>
+                                        <p class="col-md-4">: <span>
+                                                @isset($data_nasabah)
+                                                    {{ $data_nasabah->alamat }}
+                                                @endisset
+                                            </span></p>
                                     </div>
-                                    {{-- <div class="d-flex">
-                                        <p class="col-md-4">Total Pokok Setoran Liburan</p>
-                                        <p class="col-md-4">: <span id="total_pokok">Rp. 0</span></p>
-                                    </div> --}}
                                     <div class="d-flex">
                                         <p class="col-md-4">Bunga Perbulan</p>
                                         <p class="col-md-4">: <span id="bunga_perbulan">0 %</span></p>
                                         <input type="hidden" name="bunga_perbulan" id="input_bunga_perbulan">
                                     </div>
                                     <div class="d-flex">
-                                        <p class="col-md-4">Total Bayar Perbulan</p>
+                                        <p class="col-md-4">Total Tagihan Bulan Ini</p>
                                         <p class="col-md-4">: <span id="total_bayar">Rp. 0</span></p>
                                         <input type="hidden" name="total_bayar_perbulan" id="input_total_bayar_perbulan">
                                     </div>
                                     <div class="d-flex">
-                                        <p class="col-md-4">Biaya Peminjaman</p>
-                                        <p class="col-md-4">: <span id="biaya_peminjaman">Rp. 100.000</span></p>
-                                        <input type="hidden" name="biaya_peminjaman" id="input_biaya_peminjaman"
-                                            value="100000">
+                                        <p class="col-md-4">Pembayaran Ke-</p>
+                                        <p class="col-md-4">: <span id="bunga_perbulan">0</span></p>
+                                        <input type="hidden" name="bunga_perbulan" id="input_bunga_perbulan">
                                     </div>
                                     <div class="d-flex justify-content-end mt-3">
                                         <div>
@@ -148,34 +135,30 @@
                                                                 <th>Tanggal Pengajuan</th>
                                                                 <th>ID Nasabah</th>
                                                                 <th>Nama Nasabah</th>
-                                                                <th>Nominal Pinjaman</th>
-                                                                <th>Status Pinjaman</th>
+                                                                <th>Nominal Pembayaran</th>
+                                                                <th>Status Pembayaran</th>
                                                                 <th>Jangka Waktu</th>
                                                                 <th>Aksi</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($data as $no => $item)
-                                                                <tr>
-                                                                    <td>{{ $no + 1 }}</td>
-                                                                    <td>{{ $item->created_at }}</td>
-                                                                    <td>{{ $item->no_pokok_nasabah }}</td>
-                                                                    <td>{{ $item->nasabah->nama_nasabah }}</td>
-                                                                    <td>Rp. {{ number_format($item->jumlah_pinjaman) }}</td>
-                                                                    <td>
-                                                                        @if ($item->status == 'menunggu_konfirmasi')
-                                                                            Menunggu Konfirmasi Pimpinan
-                                                                        @else
-                                                                            Di Konfirmasi
-                                                                        @endif
-                                                                    </td>
-                                                                    <td>{{ $item->jangka_waktu }} Bulan</td>
-                                                                    <td><a href="/karyawan-cetak-pinjaman/{{ $item->id }}"
-                                                                            class="btn btn-icon btn-outline-secondary btn-sm">
-                                                                            <span class="tf-icons bx bx-printer"></span>
-                                                                        </a></td>
-                                                                </tr>
-                                                            @endforeach
+
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>12-12-2024</td>
+                                                                <td>123144</td>
+                                                                <td>akhmad</td>
+                                                                <td>Rp. 2.000.000</td>
+                                                                <td>
+                                                                    Menunggu Konfirmasi
+                                                                </td>
+                                                                <td>3 Bulan</td>
+                                                                <td><a href="/karyawan-cetak-angsuran"
+                                                                        class="btn btn-icon btn-outline-secondary btn-sm">
+                                                                        <span class="tf-icons bx bx-printer"></span>
+                                                                    </a></td>
+                                                            </tr>
+
 
                                                         </tbody>
                                                         <tfoot>

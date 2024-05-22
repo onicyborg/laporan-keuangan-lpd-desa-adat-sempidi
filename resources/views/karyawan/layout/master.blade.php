@@ -127,6 +127,13 @@
                 </a>
             </li>
 
+            <li class="menu-item @if ($title == 'angsuran') active @endif">
+                <a href="/karyawan-angsuran" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-wallet-alt"></i>
+                    <div data-i18n="Analytics">Angsuran</div>
+                </a>
+            </li>
+
             <li class="menu-item @if ($title == 'keuangan') active @endif">
                 <a href="/karyawan-keuangan" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-wallet"></i>

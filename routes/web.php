@@ -55,6 +55,13 @@ Route::group(['middleware' => 'level:karyawan'], function () {
     Route::post('/submit-pinjaman', [PinjamanController::class, 'store']);
     Route::get('/karyawan-cetak-pinjaman/{id}', [PinjamanController::class, 'print']);
 
+    Route::get('/karyawan-angsuran', function(){
+        return view('karyawan.angsuran', ['title' => 'angsuran']);
+    });
+    Route::get('/karyawan-cetak-angsuran', function(){
+        return view('karyawan.cetak.angsuran', ['title' => 'angsuran']);
+    });
+    
     Route::get('/karyawan-keuangan', function(){
         return view('karyawan.keuangan', ['title' => 'keuangan']);
     });
