@@ -18,13 +18,13 @@ return new class extends Migration
             $table->unsignedBigInteger('jumlah_pinjaman');
             $table->string('tujuan_pinjaman');
             $table->unsignedBigInteger('pokok_perbulan');
-            $table->unsignedBigInteger('bunga_perbulan');
+            $table->float('bunga_perbulan');
             $table->unsignedBigInteger('total_bayar_perbulan');
             $table->string('jaminan');
             $table->unsignedBigInteger('sisa_pinjam');
             $table->string('status');
             $table->string('s_val')->nullable();
-            $table->float('biaya_peminjaman');
+            $table->unsignedBigInteger('biaya_peminjaman');
             $table->string('no_pokok_nasabah');
             $table->timestamps();
 

@@ -50,11 +50,10 @@ Route::group(['middleware' => 'level:karyawan'], function () {
     Route::post('/submit-penarikan', [PenarikanController::class, 'store']);
     Route::get('/karyawan-cetak-penarikan/{id}', [PenarikanController::class, 'print']);
 
-    Route::get('/karyawan-pinjaman', [PinjamanController::class, 'index']);
+    Route::get('/karyawan-pinjaman', [PinjamanController::class, 'index'])->name('karyawan-pinjaman');
     Route::post('/cari-nasabah-pinjaman', [PinjamanController::class, 'search']);
-    Route::get('/karyawan-cetak-pinjaman', function(){
-        return view('karyawan.cetak.pinjaman', ['title' => 'pinjaman']);
-    });
+    Route::post('/submit-pinjaman', [PinjamanController::class, 'store']);
+    Route::get('/karyawan-cetak-pinjaman/{id}', [PinjamanController::class, 'print']);
 
     Route::get('/karyawan-keuangan', function(){
         return view('karyawan.keuangan', ['title' => 'keuangan']);

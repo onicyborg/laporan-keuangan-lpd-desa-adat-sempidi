@@ -17,78 +17,75 @@
                 <div class="col-md-12 text-center">
                     <h2>LPD SEMPIDI</h2>
                     <p>Desa Adat Sempidi, Kecamatan Mengwi, Kabupaten Badung, Lingkungan Sempidi</p>
-                    <h4>Data Bukti Pinjaman Nasabah</h4>
+                    <h4>Data Angsuran Pinjaman</h4>
                 </div>
             </div>
             <hr>
             <div class="row align-items-center">
                 <div class="row">
-                    <p class="col-7">Tanggal Pengajuan</p>
-                    <p class="col-1">:</p>
-                    <p class="col-4">{{ $data->created_at }}</p>
-                </div>
-                <div class="row">
                     <p class="col-7">No Pokok Nasabah</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">{{ $data->no_pokok_nasabah }}</p>
+                    <p class="col-4">001</p>
                 </div>
                 <div class="row">
                     <p class="col-7">Nama Nasabah</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">{{ $data->nasabah->nama_nasabah }}</p>
+                    <p class="col-4">Fajrin Nurhakim</p>
                 </div>
                 <div class="row">
                     <p class="col-7">Alamat</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">{{ $data->nasabah->alamat }}</p>
+                    <p class="col-4">Swakarsa</p>
+                </div>
+                <div class="row">
+                    <p class="col-7">Sisa Pokok Setoran</p>
+                    <p class="col-1">:</p>
+                    <p class="col-4">Rp. 2.000.000</p>
+                </div>
+                <div class="row">
+                    <p class="col-7">ID Pembayaran</p>
+                    <p class="col-1">:</p>
+                    <p class="col-4">002</p>
+                </div>
+                <div class="row">
+                    <p class="col-7">Tanggal Bayar</p>
+                    <p class="col-1">:</p>
+                    <p class="col-4">01-01-2024</p>
                 </div>
                 <div class="row">
                     <p class="col-7">Jumlah Pinjaman</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">Rp. {{ number_format($data->jumlah_pinjaman) }}</p>
-                </div>
-                <div class="row">
-                    <p class="col-7">Besar Pendapatan Nasabah</p>
-                    <p class="col-1">:</p>
-                    <p class="col-4">Rp. {{ number_format($data->besar_pendapatan) }}</p>
+                    <p class="col-4">Rp. 4.000.000</p>
                 </div>
                 <div class="row">
                     <p class="col-7">Jangka Waktu</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">{{ $data->jangka_waktu }} Bulan</p>
+                    <p class="col-4">3 Bulan</p>
+                </div>
+                <div class="row">
+                    <p class="col-7">Total Pokok Setoran Liburan</p>
+                    <p class="col-1">:</p>
+                    <p class="col-4">Rp. 2.000.000</p>
                 </div>
                 <div class="row">
                     <p class="col-7">Bunga Perbulan</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">{{ $data->bunga_perbulan }} %</p>
+                    <p class="col-4">1 %</p>
                 </div>
                 <div class="row">
-                    <p class="col-7">Total Pembayaran Perbulan</p>
+                    <p class="col-7">Denda</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">Rp. {{ number_format($data->total_bayar_perbulan) }}</p>
+                    <p class="col-4">Rp. 0</p>
                 </div>
                 <div class="row">
-                    <p class="col-7">Biaya Peminjaman</p>
+                    <p class="col-7">Total Bayar</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">Rp. {{ number_format($data->biaya_peminjaman) }}</p>
+                    <p class="col-4">Rp. 1.000.000</p>
                 </div>
                 <div class="row">
-                    <p class="col-7">Jaminan</p>
+                    <p class="col-7">Pembayaran Ke-</p>
                     <p class="col-1">:</p>
-                    <p class="col-4">{{ $data->jaminan }}</p>
-                </div>
-                <div class="row">
-                    <p class="col-7">Status Pinjaman</p>
-                    <p class="col-1">:</p>
-                    <p class="col-4">
-                        @if ($data->status == 'menunggu_konfirmasi')
-                            Menunggu Konfirmasi Pimpinan
-                        @elseif ($data->status == 'ditolak')
-                            Ditolak Pimpinan
-                        @else
-                            Dikonfirmasi Pimpinan
-                        @endif
-                    </p>
+                    <p class="col-4">2</p>
                 </div>
             </div>
         </div>
